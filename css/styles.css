@@ -1,0 +1,144 @@
+html {
+    background: url(../images/Turtle-cliff-beach.jpg) no-repeat top left fixed;
+    background-size: cover;  
+    Background-image: linear-gradient(to right, #ff000000, #D5D3D9), url(../images/Turtle-cliff-beach.jpg);
+
+}
+/*!!Fix found for background url not sitting right (gap at base on expansion) and gradient not matching image. place background in html element. See above*/
+
+body {
+    font-family: 'Schoolbell', cursive;   
+    font-size: 1.5em;
+    color:#0e0e62;
+    display: flex;
+    flex-flow: column wrap;
+}
+
+a:link {
+    color: #0e0e62;
+}
+
+a:visited {
+    color:#7A896C;
+}
+
+a:active {
+    color: #D5D3D9;
+}
+
+a:hover {
+    box-shadow: inset 3em 0 0 0 #D5D3D9;
+}
+/*!!Can I make a unique cursor using a photo? or find a shell shaped one? */
+
+article {
+    padding: 1em;
+}
+
+
+aside {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    }
+
+h1 {
+    color: #BF9CA4;
+    font-size: 0.8em;
+    list-style: none;
+}
+
+h2 {
+    color: #7A896C;
+    font-size: 1em;
+    padding: 1em;
+}
+
+p {
+    text-align: center;
+    color: palevioletred;
+}
+
+.topnav {
+    font-size: 0.5em;
+    display: flex;
+    justify-content: space-around;
+}
+
+#header-component {
+    font-family: 'Rock Salt', cursive;
+    color: #BF9CA4;
+    font-size: 0.6em;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    flex-direction: column;  
+}
+
+#main {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;    
+    max-width: 20em;
+    padding-left: 2em;
+}
+
+#my-footer {    
+    color: #0e0e62;
+    background-color: lightgray;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    font-size: 0.5em;    
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    margin: 0;
+    }
+
+#shell-btn {
+    color:#320E3B;   
+    text-align: center;
+    font-weight: bold;
+    background-image: url(../images/Clam-btn.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: solid 0.25em palevioletred;
+    opacity: 1;
+    height: 6em;
+    width: 6em;  
+    border-radius: 50%;   
+}
+#shell-choice {   
+    border: none;
+    margin: 2em;
+    padding: 1em;
+}
+
+
+
+@media screen and (min-width: 40em) {
+
+    header {
+        font-size: 1em;         
+    }
+
+    #main {
+        display: flex;
+        flex-flow: wrap-reverse row;
+        max-width: 100%;
+        padding: 2em;
+    }
+    
+}
+
+/*
+Colour palette
+Light
+Tuscany (muted pink) #BF9CA4
+Light Gray #D5D3D9
+Xanadu (olive green)#7A896C
+Dark
+Russian Violet #320E3B
+Prussian Blue #003052*/
