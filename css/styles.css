@@ -4,7 +4,6 @@ html {
     Background-image: linear-gradient(to right, #ff000000, #D5D3D9), url(../images/Turtle-cliff-beach.jpg);
 
 }
-/*!!Fix found for background url not sitting right (gap at base on expansion) and gradient not matching image. place background in html element. See above*/
 
 body {
     font-family: 'Schoolbell', cursive;   
@@ -34,7 +33,6 @@ a:hover {
 article {
     padding: 1em;
 }
-
 
 aside {
     display: flex;
@@ -110,6 +108,7 @@ p {
     width: 6em;  
     border-radius: 50%;   
 }
+
 #shell-choice {   
     border: none;
     margin: 2em;

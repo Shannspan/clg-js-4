@@ -72,7 +72,7 @@ if(buttonCLick) {
   console.log("Text is dark blue")
 }
 
-//UPDATE TEXT AND UPDATE STYLING TO FIT PAGE!!
+
 const select = document.querySelector('select');
 const para = document.querySelector('p');
 
@@ -94,50 +94,6 @@ function setShell() {
   }
 }
 
-
-
-//maybe header & footer should have there own.js file? Will tat fix the error? 
-class Header extends HTMLElement {
-  constructor(){
-    super();
-  }
-connectedCallback () {
-    this.innerHTML = `
-    <header>
-    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
-    BEACHCOMBING TURTLE CLIFFS
-    <nav>
-    <div class="topnav">
-    <a class="navlinks" href="#home">Home</a>
-    <a href="#beachcombing">Beachcombing</a>   
-    <a href="#marinelife">Marine Life</a>    
-    <a href="#contact">Contact</a>
-    </div>
-    </nav> 
-    </header>
-    `;
-}
-}
-    customElements.define('header-component', Header);
-
-
-
-  //new error just on header: 
-  //the name "my-header" has already been used with this registry.
-  //fix attempt - changed name to the-header. Same error occurs for new name.
-  //fix attempt 2 - found missing semicolon and tried a new variation of code and new name, same error.
-
-class MyFooter extends HTMLElement {
-    connectedCallback () {
-        this.innerHTML = `
-        <footer>
-        <p>© SHANNSPANPLAYSJS 2022</p>
-        <p>non commercial - only for research and educational purpose
-        all picture copyrights remain with their authors.</p>
-      </footer>`
-    }
-    }    
-    customElements.define('my-footer', MyFooter);
 
   
     
