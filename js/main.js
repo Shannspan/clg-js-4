@@ -50,6 +50,7 @@ if (marinePark >= 6) {
 
 
 // Declarations are hoisted, therefore, over riding the text in this button in html.
+//return false; removed from end of function. Seems to be stopping hyperlink from working.
 
 let shellBtn; 
 
@@ -61,7 +62,7 @@ elem.innerHTML = "Start Button";
 document.getElementById('shell-btn').onclick = changeColor;   
 function changeColor() {
 document.body.style.color = "#439EDB";
-return false;
+
 }
   
 // TURN THIS INTO AN IF ELSE RESULTING FROM A SELECTION ON PAGE

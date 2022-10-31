@@ -66,7 +66,7 @@ p {
 #header-component {
     font-family: 'Rock Salt', cursive;
     color: #BF9CA4;
-    font-size: 0.6em;
+    font-size: 1em;
     font-weight: bold;
     text-align: center;
     display: flex;
@@ -95,18 +95,16 @@ p {
     }
 
 #shell-btn {
-    color:#320E3B;   
-    text-align: center;
-    font-weight: bold;
     background-image: url(../images/Clam-btn.jpg);
     background-size: 100%;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center;   
     border: solid 0.25em palevioletred;
-    opacity: 1;
-    height: 6em;
-    width: 6em;  
-    border-radius: 50%;   
+    opacity: 1;    
+    border-radius: 50%;  
+    color:#320E3B;   
+    text-align: center;
+    font-weight: bold; 
 }
 
 #shell-choice {   
@@ -125,7 +123,7 @@ p {
 
     #main {
         display: flex;
-        flex-flow: wrap-reverse row;
+        /*flex-flow: wrap-reverse row;*/
         max-width: 100%;
         padding: 2em;
     }

@@ -9,7 +9,7 @@ connectedCallback () {
     this.innerHTML = `
     <header>
     <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
-    BEACHCOMBING TURTLE CLIFFS
+    A FRINGE OF REEF
     <nav>
     <div class="topnav">
     <a class="navlinks" href="#home">Home</a>
