@@ -1,69 +1,143 @@
-//Expressions are lines of code that resolve to a value.
-//Expressions are made up of operands and operators, usually short (one line of code).
-//Operators do the work eg. +, *, &&, > etc
-//Operands are the values being worked (operated) on.
+//TIC TAC TOE ref youtube 'Coding with Russ' BEACHCOMBING PAGE
+//Create array to hold board data
+let boardData = [
+  [0, 0, 0],
+  [0, 0, 0],
+  [0, 0, 0],
+]
+//Define game variables
+let player = 1;
+let gameOver = false;
 
-//Assigning values using an operator, =
+//Pull in cells from DOM
+const cellElements = document.querySelectorAll(".cell");
+//Pull in result text from DOM
+const resultElement = document.getElementById("result");
 
-let a = 7;
-let b = 22;
+//add event listener
+cellElements.forEach((cell, index) => {
+  cell.addEventListener("click", () => {
+    placeMarker(index)
+  });
+});
 
-//assigning value using = , and creating that value using +
-let c = a + b;
+//Create function for placing markers
+function placeMarker(index) {
+  //detemine row and column from index
+  let col = index % 3
+  //console.log(col);
+  let row = (index - col) / 3
+  //Check if current cell is empty... and later on add in gameOver so the game actually stops once there is a winner or a tie.
+    if(boardData [row][col] ==0 && gameOver == false) {
+    boardData [row][col] = player;
+    //change player
+    player *= -1;
+    //console.log(boardData);
+    //Update the screen with Markers by invoking a function
+    drawMarkers();
+    //Check if there is a winner by invoking a function
+    checkResult ();
+  }} 
 
-console.log(c);
-
-//more expressions performing maths
-
-let d = c * (a + b);
-
-console.log(d);
-
-//concatenation
-
-let title1 = 'Turtle ';
-let title2 = 'Cliffs';
-let title = title1 + title2;
-
-console.log(title);
-
-//Conditional/Ternary operator
-
-const greeting = (person) => {
-  const name = person ? person.name : "Sailor";
-  return `Ahoy, ${name}`;
+// Create function for drawing player markers
+function drawMarkers() {
+  //Iterate over rows with for loops
+  for(let row = 0; row < 3; row++) {
+  //Iterate over columns with for loop
+    for(let col = 0; col < 3; col++){
+    //check if player 1's marker
+    if(boardData[row][col] == 1){
+    //update cell class to add a cross
+    cellElements[(row * 3) + col].classList.add("cross");
+    } else if (boardData[row][col] == -1) {
+      //update cell class to add circle
+    cellElements[(row * 3) + col].classList.add("circle");
+    }}}}
+//Create function for checking the result of the game -  using maths. Player 1 wins on the board when 3 cells in any direction add up to 3. Likewise, player 2 will add up to -3. (needs to have a return after each endGame condition is met so that there is only one winner or a tie)
+function checkResult() {
+  //check rows and columns for winner using a for loop
+  for(let a = 0; a < 3; a++) {
+    let rowSum = boardData[a][0] + boardData[a][1] + boardData[a][2];
+    let colSum = boardData[0][a] + boardData[1][a] + boardData[2][a];
+    if(rowSum == 3 || colSum == 3) {
+      //Player 1 wins
+      endGame("White Clam shell");
+      return
+    } else if(rowSum == -3 || colSum == -3) {
+      //Player 2 wins
+      endGame("Blue Mussell shell");
+      return
+    }
+  }
+//Check diagonals for winner 
+let diagonalSum1 = boardData[0][0] + boardData[1][1] + boardData[2][2];
+let diagonalSum2 = boardData[0][2] + boardData[1][1] + boardData[2][0];
+if(diagonalSum1 == 3 || diagonalSum2 == 3) {
+  //Player 1 wins
+  //console.log("Clam shell player wins"); debug complete so now add endGame and a return.
+  endGame("White Clam shell");
+  return
+} else if(diagonalSum1 == -3 || diagonalSum2 == -3) {
+  //Player 2 wins
+  //console.log("Blue Mussell shell player wins");
+  endGame("Blue Mussell shell");
+  return
 }
-
-console.log(greeting({ name: "Shelby" })); 
-console.log(greeting(null));       
-
-// if else
-
-const marinePark = 3;
-
-if (marinePark >= 6) {
-  console.log("This beach is in a Marine Park.");
-} else {
-  console.log("This beach is suitable for Shell Collection.");
+//Check for a tie 
+if(boardData[0].indexOf(0) == -1 &&
+  boardData[1].indexOf(0) == -1 &&
+  boardData[2].indexOf(0) == -1) {
+    //console.log("Tied game");
+    endGame(0);
+    return
+  }
 }
+//Function to end the game and display the result
+function endGame(winner) {
+  //Trigger game over
+  gameOver = true; 
+  //Check if game ended in a tie
+  if (winner == 0) {
+    //console.log("Tied game"); ...now add to screen for player interaction
+    resultElement.innerText = "It's a tie!"
+  } else {
+    //console.log(`${winner} player wins!`);
+    resultElement.innerText = `${winner} player wins!`
+  }
+}
+//Restart game
+const restartButton = document.getElementById("restart");
+//Add event listener to restart button
+restartButton.addEventListener("click", () => {
+ //console.log("restart");
+ //reset game variables
+ boardData = [
+  [0, 0, 0],
+  [0, 0, 0],
+  [0, 0, 0],
+]
+player = 1;
+gameOver = false;
+//reset game board
+cellElements.forEach(cell => {
+  cell.classList.remove("cross", "circle");
+});
+//Reset result text
+resultElement.innerText = ""
+});
 
-// Declarations are hoisted, therefore, over riding the text in this button in html.
-//return false; removed from end of function. Seems to be stopping hyperlink from working.
 
 let shellBtn; 
-
-
 elem = document.getElementById("shell-btn"); 
-
-elem.innerHTML = "Start Button"; 
+//!!   ERROR MESSAGE SHOWING FOR BELOW LINE OF CODE IN CONSOLE - NEEDS TO BE FIXED
+elem.innerText = "Start Button"; 
 
 document.getElementById('shell-btn').onclick = changeColor;   
 function changeColor() {
 document.body.style.color = "#439EDB";
-
 }
   
-// TURN THIS INTO AN IF ELSE RESULTING FROM A SELECTION ON PAGE
+// TURN THIS INTO AN IF ELSE RESULTING FROM A SELECTION ON INDEX PAGE
 let buttonCLick = true;
 if(buttonCLick) {
   console.log("Text is light blue.");
@@ -92,96 +166,3 @@ function setShell() {
     para.textContent = '';
   }
 }
-
-
-// SECOND OPTION FOR TIC TAC TOE
-//const PLAYER_X_CLASS = 'x'
-// const PLAYER_O_CLASS = 'circle'
-// const WINNING_COMBINATIONS = [
-// 	[0, 1, 2],
-// 	[3, 4, 5],
-// 	[6, 7, 8],
-// 	[0, 3, 6],
-// 	[1, 4, 7],
-// 	[2, 5, 8],
-// 	[0, 4, 8],
-// 	[2, 4, 6]
-// ]
-
-// const cellElements = document.querySelectorAll('[data-cell]')
-// const boardElement = document.getElementById('board')
-// const winningMessageElement = document.getElementById('winningMessage')
-// const restartButton = document.getElementById('restartButton')
-// const winningMessageTextElement = document.getElementById('winningMessageText')
-// let isPlayer_O_Turn = false
-    
-// startGame()
-
-// restartButton.addEventListener('click', startGame)
-
-// function startGame() {
-// 	isPlayer_O_Turn = false
-// 	cellElements.forEach(cell => {
-// 		cell.classList.remove(PLAYER_X_CLASS)
-// 		cell.classList.remove(PLAYER_O_CLASS)
-// 		cell.removeEventListener('click', handleCellClick)
-// 		cell.addEventListener('click', handleCellClick, { once: true })
-// 	})
-// 	setBoardHoverClass()
-// 	winningMessageElement.classList.remove('show')
-// }
-
-// function handleCellClick(e) {
-// 	const cell = e.target
-// 	const currentClass = isPlayer_O_Turn ? PLAYER_O_CLASS : PLAYER_X_CLASS
-// 	placeMark(cell, currentClass)
-// 	if (checkWin(currentClass)) {
-// 		endGame(false)
-// 	} else if (isDraw()) {
-// 		endGame(true)
-// 	} else {
-// 		swapTurns()
-// 		setBoardHoverClass()
-// 	}
-// }
-
-// function endGame(draw) {
-//   if (draw) {
-//     winningMessageTextElement.innerText = "It's a draw!"
-//   } else {
-//     winningMessageTextElement.innerText = `Player with ${isPlayer_O_Turn ? "O's" : "X's"} wins!`
-//   }
-//   winningMessageElement.classList.add('show')
-// }
-
-// function isDraw() {
-// 	return [...cellElements].every(cell => {
-// 		return cell.classList.contains(PLAYER_X_CLASS) || cell.classList.contains(PLAYER_O_CLASS)
-// 	})
-// }
-
-// function placeMark(cell, currentClass) {
-// 	cell.classList.add(currentClass)
-// }
-
-// function swapTurns() {
-// 	isPlayer_O_Turn = !isPlayer_O_Turn
-// }
-
-// function setBoardHoverClass() {
-// 	boardElement.classList.remove(PLAYER_X_CLASS)
-// 	boardElement.classList.remove(PLAYER_O_CLASS)
-// 	if (isPlayer_O_Turn) {
-// 		boardElement.classList.add(PLAYER_O_CLASS)
-// 	} else {
-// 		boardElement.classList.add(PLAYER_X_CLASS)
-// 	}
-// }
-
-// function checkWin(currentClass) {
-// 	return WINNING_COMBINATIONS.some(combination => {
-// 		return combination.every(index => {
-// 			return cellElements[index].classList.contains(currentClass)
-// 		})
-// 	})
-// }
