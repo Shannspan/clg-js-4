@@ -11,6 +11,7 @@ body {
     color:#0e0e62;
     display: flex;
     flex-flow: column wrap;
+    margin: 0;    
 }
 
 a:link {
@@ -63,6 +64,140 @@ p {
     justify-content: space-around;
 }
 
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#game {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.board {
+	width: 30em;
+	height: 30em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 2em;
+    background-image: url(/images/tttboard.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 15%;
+    box-shadow: 0 0 2em 1em #320E3B;
+
+
+	/*display: grid;
+	justify-content: center;
+	align-content: center;
+	justify-items: center;
+	align-items: center;
+	grid-template-columns: repeat(3, auto)*/
+}
+
+.board:hover {
+    cursor: pointer;
+}
+
+.circle {
+    background-image: url(/images/game\ o.jpg);
+}
+
+.cross {
+    background-image: url(/images/game\ x.jpg);
+}
+
+.circle,.cross {
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+
+.game-title {
+    font-size: 2em;
+    text-align: center;
+}
+/*SECOND OPTION FOR TIC TAC TOE 
+/*.cell {
+	width: var(--cell-size);
+	height: var(--cell-size);
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	cursor: pointer;
+}*/
+
+
+/* for cross */
+/* .board.x .cell:not(.circle):not(.x):hover {
+	background: linear-gradient(to top right, transparent calc(50% - var(--l) / 2), var(--color) calc(50% - var(--l) / 2) calc(50% + var(--l) / 2), transparent calc(50% + var(--l) / 2)),
+				linear-gradient(to bottom right, transparent calc(50% - var(--l) / 2), var(--color) calc(50% - var(--l) / 2) calc(50% + var(--l) / 2), transparent calc(50% + var(--l) / 2));
+	background-size: 80% 80%;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+/* for cross (set) 
+.cell:not(.circle).x {
+	background: linear-gradient(to top right, transparent calc(50% - var(--l) / 2), var(--color-set) calc(50% - var(--l) / 2) calc(50% + var(--l) / 2), transparent calc(50% + var(--l) / 2)),
+				linear-gradient(to bottom right, transparent calc(50% - var(--l) / 2), var(--color-set) calc(50% - var(--l) / 2) calc(50% + var(--l) / 2), transparent calc(50% + var(--l) / 2));
+	background-size: 80% 80%;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+/* for circle 
+.board.circle .cell:not(.circle):not(.x):hover {	
+	background: radial-gradient(var(--color) 60%, transparent 60%);
+}
+
+/* for circle (set) 
+.cell:not(.x).circle {
+	background: radial-gradient(var(--color-set) 60%, transparent 60%);
+}
+
+.winning-message {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: var(--color-set);
+	justify-content: center;
+	align-items: center;
+	color: white;
+	font-size: 5rem;
+	font-family: 'Courier New', Courier, monospace;
+	flex-direction: column;
+}
+
+.winning-message button {
+	border-radius: 10px;
+	font-size: 3rem;
+	background-color: white;
+	border: 1px solid var(--color-set);
+	padding: .25em .5em;
+	cursor: pointer;
+}
+
+.winning-message button:hover {
+	background-color: var(--color-set);
+	color: white;
+	border-color: white;
+} */
+
+
 #header-component {
     font-family: 'Rock Salt', cursive;
     color: #BF9CA4;
@@ -93,18 +228,22 @@ p {
     bottom: 0;
     margin: 0;
     }
-
+/*note: images used for buttons are easier to manage in html than as background images in css. image for shell button now in html
+BUT NOW I HAVE LOST TEXT LABLLING THE BUTTON - HOW DO I GET IT BACK?*/
 #shell-btn {
-    background-image: url(../images/Clam-btn.jpg);
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: center;   
-    border: solid 0.25em palevioletred;
-    opacity: 1;    
-    border-radius: 50%;  
     color:#320E3B;   
     text-align: center;
-    font-weight: bold; 
+    font-weight: bold;
+    height: 5em;
+    width: 5em;    
+    border: solid 0.25em palevioletred;
+    opacity: 1;    
+    border-radius: 50%;     
+    margin: 2em; 
+}
+#shell-link {
+   /*figure out how tp turm off or change a hover for this button*/
+
 }
 
 #shell-choice {   
@@ -113,6 +252,13 @@ p {
     padding: 1em;
 }
 
+:root {
+	--cell-size: 100px;
+
+	--color: #81c3fd; /* for hover */
+	--color-set: #0275d8; /* when set */
+	--l: 10px; /* X line-width */
+}
 
 
 @media screen and (min-width: 40em) {
@@ -123,7 +269,7 @@ p {
 
     #main {
         display: flex;
-        /*flex-flow: wrap-reverse row;*/
+        flex-flow: wrap-reverse row;
         max-width: 100%;
         padding: 2em;
     }
