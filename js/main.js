@@ -126,15 +126,16 @@ cellElements.forEach(cell => {
 resultElement.innerText = ""
 });
 
-// Using slightly different variables from Assignment as shell-btn on index page is now a link and any color changes won't be observed unless the user returns to that page. 
+// Using slightly different variables from Assignment 3 as shell-btn on index page is now a link and any color changes won't be observed unless the user returns to that page. 
+
+const restartBtn = document.getElementById("restart");
 
 
-function colorChangeBtn() {
-  const restartBtn = document.getElementById("restart");
-  console.log("Play again!");
-  restartBtn.style.color = "plum";    
+function colorChangeBtn() {  
+restartBtn.style.color = "plum"; 
 }
 colorChangeBtn();
+ 
 
 
 //Function for Index page Select your favourite shell
