@@ -98,10 +98,11 @@ function endGame(winner) {
   gameOver = true; 
   //Check if game ended in a tie
   if (winner == 0) {
-    //console.log("Tied game"); ...now add to screen for player interaction
+    console.log("Tied game"); 
+    //...now add to screen for player interaction
     resultElement.innerText = "It's a tie!"
   } else {
-    //console.log(`${winner} player wins!`);
+    console.log(`${winner} player wins!`);
     resultElement.innerText = `${winner} player wins!`
   }
 }
@@ -124,6 +125,17 @@ cellElements.forEach(cell => {
 //Reset result text
 resultElement.innerText = ""
 });
+
+// Using slightly different variables from Assignment as shell-btn on index page is now a link and any color changes won't be observed unless the user returns to that page. 
+
+
+function colorChangeBtn() {
+  const restartBtn = document.getElementById("restart");
+  console.log("Play again!");
+  restartBtn.style.color = "plum";    
+}
+colorChangeBtn();
+
 
 //Function for Index page Select your favourite shell
 
