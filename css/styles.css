@@ -2,7 +2,6 @@ html {
     background: url(../images/Turtle-cliff-beach.jpg) no-repeat top left fixed;
     background-size: cover;  
     Background-image: linear-gradient(to right, #ff000000, #D5D3D9), url(../images/Turtle-cliff-beach.jpg);
-
 }
 
 body {
@@ -64,83 +63,6 @@ p {
     justify-content: space-around;
 }
 
-* {
-    margin:0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-#game {
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1em;
-}
-#result {
-    width: 30em;
-    height: 3em;
-    font-size: 1.5em;
-    color: #0275d8;
-    text-align: center;
-}
-
-button {
-    background-color: paleturquoise;
-    border: none;
-    border-radius: 15%;
-    font-size: inherit;
-    font-size: 2em;
-    padding: 0.5em 1em;
-}
-
-button:hover {
-    cursor: pointer;
-    background-color: cadetblue;
-}
-
-
-
-.board {
-	width: 30em;
-	height: 30em;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 2em;
-    background-image: url(/images/tttboard.jpg);
-    background-size: cover;
-    background-position: center;
-    border-radius: 15%;
-    box-shadow: 0 0 2em 1em #320E3B;	
-}
-
-.board:hover {
-    cursor: pointer;
-}
-
-.circle {
-    background-image: url(/images/game\ o.jpg);
-}
-
-.cross {
-    background-image: url(/images/game\ x.jpg);
-}
-
-.circle,.cross {
-    background-size: 80%;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-
-
-.game-title {
-    font-size: 3em;
-    text-align: center;
-    padding: 1em;
-}
 
 #header-component {
     font-family: 'Rock Salt', cursive;
@@ -180,7 +102,7 @@ BUT NOW I HAVE LOST TEXT LABLLING THE BUTTON - HOW DO I GET IT BACK?*/
     font-weight: bold;
     height: 5em;
     width: 5em;    
-    border: solid 0.25em palevioletred;
+    border: 0.25em dotted palevioletred;
     opacity: 1;    
     border-radius: 50%;     
     margin: 2em; 
@@ -195,9 +117,83 @@ BUT NOW I HAVE LOST TEXT LABLLING THE BUTTON - HOW DO I GET IT BACK?*/
     margin: 2em;
     padding: 1em;
 }
+/*game styling*/
 
 
+#game {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    text-align: left;
+}
+#result {
+    width: 20em;
+    height: 3em;
+    font-size: 1.5em;
+    color: #0275d8;
+    text-align: left;
+}
 
+#restart {
+    background-color: paleturquoise;
+    border: none;
+    border-radius: 15%;
+    font-size: 2em;
+    padding: 1em;
+    max-width: 10em;
+}
+
+#restart:hover {
+    cursor: pointer;
+    background-color: cadetblue;
+}
+
+#board {
+	width: 20em;
+	height: 20em;
+    margin-left: 1em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 2em;
+    background-image: url(/images/tttboard.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 15%;
+    box-shadow: 0 0 2em 1em #320E3B;   
+}
+
+#board:hover {
+    cursor: pointer;
+}
+
+.circle {
+    background-image: url(/images/game\ o.jpg);
+}
+
+.cross {
+    background-image: url(/images/game\ x.jpg);
+}
+
+.circle,.cross {
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.game-title {
+    font-size: 3em;
+    padding: 1em;
+}
+#game-access {
+    color: palevioletred;
+    font-size: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 
 @media screen and (min-width: 40em) {
 

@@ -108,8 +108,7 @@ function endGame(winner) {
 //Restart game
 const restartButton = document.getElementById("restart");
 //Add event listener to restart button
-restartButton.addEventListener("click", () => {
- //console.log("restart");
+restartButton.addEventListener("click", () => { 
  //reset game variables
  boardData = [
   [0, 0, 0],
@@ -126,25 +125,7 @@ cellElements.forEach(cell => {
 resultElement.innerText = ""
 });
 
-
-let shellBtn; 
-elem = document.getElementById("shell-btn"); 
-//!!   ERROR MESSAGE SHOWING FOR BELOW LINE OF CODE IN CONSOLE - NEEDS TO BE FIXED
-elem.innerText = "Start Button"; 
-
-document.getElementById('shell-btn').onclick = changeColor;   
-function changeColor() {
-document.body.style.color = "#439EDB";
-}
-  
-// TURN THIS INTO AN IF ELSE RESULTING FROM A SELECTION ON INDEX PAGE
-let buttonCLick = true;
-if(buttonCLick) {
-  console.log("Text is light blue.");
-} else {
-  console.log("Text is dark blue")
-}
-
+//Function for Index page Select your favourite shell
 
 const select = document.querySelector('select');
 const para = document.querySelector('p');
